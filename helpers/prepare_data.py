@@ -6,7 +6,7 @@ import pickle as pkl
 
 random.seed(961)
 
-CONSTANTS_PATH = '../Helpers/Constants'
+CONSTANTS_PATH = 'constants'
 CHARS_NUM = 50
 CLASSES_NUM = 15
 
