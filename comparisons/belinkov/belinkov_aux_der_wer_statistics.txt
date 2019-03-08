@@ -1,0 +1,9 @@
+DER with case ending (no diacritics included): 32.57
+DER without case ending (no diacritics included): 29.68
+WER with case ending (no diacritics included): 75.83
+WER without case ending (no diacritics included): 60.19
+
+DER with case ending (no diacritics not included): 37.59
+DER without case ending (no diacritics not included): 34.41
+WER with case ending (no diacritics not included): 74.74
+WER without case ending (no diacritics not included): 58.85
