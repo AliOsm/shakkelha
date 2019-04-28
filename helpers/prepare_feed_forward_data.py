@@ -6,7 +6,7 @@ import pickle as pkl
 
 random.seed(961)
 
-CONSTANTS_PATH = 'constants'
+CONSTANTS_PATH = 'constants/'
 CHARS_NUM = 50
 CLASSES_NUM = 15
 
@@ -16,17 +16,11 @@ with open(CONSTANTS_PATH + '/ARABIC_LETTERS_LIST.pickle', 'rb') as file:
 with open(CONSTANTS_PATH + '/DIACRITICS_LIST.pickle', 'rb') as file:
   DIACRITICS_LIST = pkl.load(file)
 
-with open(CONSTANTS_PATH + '/CLASSES_LIST.pickle', 'rb') as file:
-  CLASSES_LIST = pkl.load(file)
-
-with open(CONSTANTS_PATH + '/CHARACTERS_MAPPING.pickle', 'rb') as file:
+with open(CONSTANTS_PATH + '/SMALL_CHARACTERS_MAPPING.pickle', 'rb') as file:
   CHARACTERS_MAPPING = pkl.load(file)
 
-with open(CONSTANTS_PATH + '/CLASSES_MAPPING.pickle', 'rb') as file:
+with open(CONSTANTS_PATH + '/FFNN_CLASSES_MAPPING.pickle', 'rb') as file:
   CLASSES_MAPPING = pkl.load(file)
-
-with open(CONSTANTS_PATH + '/REV_CLASSES_MAPPING.pickle', 'rb') as file:
-  REV_CLASSES_MAPPING = pkl.load(file)
 
 def prepare_examples_from_lines(lines):
   X = list()
