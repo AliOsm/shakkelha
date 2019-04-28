@@ -1,6 +1,6 @@
 import gc
-import sys
 import random
+import argparse
 import numpy as np
 import pickle as pkl
 
@@ -66,8 +66,8 @@ def prepare_examples_from_lines(lines):
 
       x = list()
       x.append(before_need)
-      x.extend([CHARACTERS_MAPPING[ch] for ch in before])
-      x.extend([CHARACTERS_MAPPING[ch] for ch in after])
+      x.extend([CHARACTERS_MAPPING[ch] if ch in CHARACTERS_MAPPING else 0 for ch in before])
+      x.extend([CHARACTERS_MAPPING[ch] if ch in CHARACTERS_MAPPING else 0 for ch in after])
       x.append(after_need)
 
       X.append(x)
@@ -122,7 +122,10 @@ def prepare_data(train_file, val_file, test_file):
   gc.collect()
 
 if __name__ == '__main__':
-  if len(sys.argv) != 4:
-    sys.exit('usage: python %s [TRAINING_DATA_FILE] [VALIDATION_DATA_FILE] [TESTING_DATA_FILE]' % sys.argv[0])
+  parser = argparse.ArgumentParser(description='Prepares data for the feed-forward model')
+  parser.add_argument('--train', required=True)
+  parser.add_argument('--val', required=True)
+  parser.add_argument('--test', required=True)
+  args = parser.parse_args()
 
-  prepare_data(sys.argv[1], sys.argv[2], sys.argv[3])
+  prepare_data(args.train, args.val, args.test)

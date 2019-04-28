@@ -1,13 +1,13 @@
-import sys
+import argparse
 import matplotlib.pyplot as plt
 
-def restore_model_accuracy_and_loss(FILE_PATH):
+def restore_model_accuracy_and_loss(file_path):
   loss = list()
   acc = list()
   val_loss = list()
   val_acc = list()
 
-  with open(FILE_PATH, 'r') as file:
+  with open(file_path, 'r') as file:
     lines = file.readlines()
 
   for idx in range(1, len(lines), 2):
@@ -38,9 +38,8 @@ def restore_model_accuracy_and_loss(FILE_PATH):
   plt.show()
 
 if __name__ == '__main__':
-  if len(sys.argv) != 2:
-    sys.exit('usage: python %s [TRAINING_LOGS_FILE]' % sys.argv[0])
+  parser = argparse.ArgumentParser(description='Restores the accuracy and loss figure from training logs')
+  parser.add_argument('-in', '--file-path', required=True)
+  args = parser.parse_args()
 
-  FILE_PATH = sys.argv[1]
-
-  restore_model_accuracy_and_loss(FILE_PATH)
+  restore_model_accuracy_and_loss(args.file_path)
