@@ -2,7 +2,7 @@
 
 This repository contains the models, dataset, helpers, and systems comparison for our paper on Arabic Text Diacritization:
 
-"Neural Arabic Text Diacritization: Outperforming State of the Art Using FFNN and RNN", Ali Fadel, Ibraheem Tuffaha, Mahmoud Al-Ayyoub and Bara' Al-Jawarneh, ACL 2019.
+"Neural Arabic Text Diacritization: Outperforming State of the Art Using FFNN and RNN", Ali Fadel, Ibraheem Tuffaha, Mahmoud Al-Ayyoub and Bara' Al-Jawarneh, [ACL 2019](http://www.acl2019.org).
 
 ## Contributors
 1. [Ali Hamdi Ali Fadel](https://github.com/AliOsm).<br/>
