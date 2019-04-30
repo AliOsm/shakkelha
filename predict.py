@@ -28,7 +28,10 @@ def get_model_path(model_type, model_number, model_size, model_average):
   if model_type == 'ffnn':
     model_path = join(model_path, 'model.ckpt')
   elif model_type == 'rnn':
-    model_path = join(model_path, model_size + '_data', 'avg_%s.ckpt' % model_average)
+    if tf.test.is_gpu_available():
+      model_path = join(model_path, model_size + '_data', 'avg_%s.ckpt' % model_average)
+    else:
+      model_path = join(model_path, model_size + '_data', 'lstm', 'avg_%s.ckpt' % model_average)
 
   return model_path
 
