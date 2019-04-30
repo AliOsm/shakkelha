@@ -14,10 +14,6 @@ This repository contains the models, dataset, helpers, and systems comparison fo
   The previous line will diacritize the text inside `sample_input` file using the `rnn` model that have number `3` trained on the `small` dataset after averaging the last `20` epochs and writes the diacritized text on `sample_output`.
 - sample-input - Sample input file
 
-### [models](/models)
-
-### TODO
-
 ### [dataset](/dataset)
 
 - extra_train.zip - Contains the extra training dataset that was used to train the models
@@ -49,7 +45,25 @@ This repository contains the models, dataset, helpers, and systems comparison fo
 - restore_model_accuracy_and_loss.py - Restores and plots the accuracy and loss values for FFNN models from keras training log files
 - optimizer.py - An implementation for [Block-Normalized Gradient Method: An Empirical Study for Training Deep Neural Network](https://arxiv.org/abs/1707.04822) paper copied from [here](https://github.com/titu1994/keras-normalized-optimizers)
 
+### [models](/models)
+
+- ffnn_models - Contains all feed-forward neural networks codes, models and statistics
+  - 1_basic_model - Contains basic FFNN model training and predicting codes, model weights and DER/WER statistics
+  - 2_100_hot_model - Contains 100 hot FFNN model training and predicting codes, model weights and DER/WER statistics
+  - 3_embeddings_model - Contains embeddings FFNN model training and predicting codes, model weights and DER/WER statistics
+- rnn_models - Contains all recurrent neural networks codes, models and statistics
+  - 1_basic_model - Contains basic RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
+  - 2_crf_model - Contains CRF-RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
+  - 3_normalized_model - Contains normalized RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
+
 #### Note: All codes in this repository tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)
+
+<p align="center">
+  <img width="150" src="models/rnn_models/rnn_basic_model_structure.png">
+</p>
+<p align="center">
+  Basic RNN model structure
+</p>
 
 ## Contributors
 1. [Ali Hamdi Ali Fadel](https://github.com/AliOsm).<br/>
