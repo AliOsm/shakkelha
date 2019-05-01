@@ -6,12 +6,7 @@ This repository contains the models, dataset, helpers, and systems comparison fo
 
 ## Files
 
-- predict.py - General script can be used to predict any model output, example of usage:
-
-  ```bash
-  python predict.py --input-file-path sample_input --model-type rnn --model-number 3 --model-size small --model-average 20 --output-file-path sample_output
-  ```
-  The previous line will diacritize the text inside `sample_input` file using the `rnn` model that have number `3` trained on the `small` dataset after averaging the last `20` epochs and writes the diacritized text on `sample_output`.
+- predict.py - General script can be used to predict any model output:
 - sample-input - Sample input file
 
 ### [dataset](/dataset)
@@ -55,6 +50,36 @@ This repository contains the models, dataset, helpers, and systems comparison fo
   - 1_basic_model - Contains basic RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
   - 2_crf_model - Contains CRF-RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
   - 3_normalized_model - Contains normalized RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
+  
+## Usage
+
+### To Predict
+
+To predict the diacritized text using any model provided in this repository the script `predict.py` can be used, example:
+```bash
+python predict.py --input-file-path sample_input --model-type rnn --model-number 3 --model-size small --model-average 20 --output-file-path sample_output
+```
+The previous line will diacritize the text inside `sample_input` file using the `rnn` model that have number `3` trained on the `small` dataset (without extra training dataset) after averaging the last `20` epochs and writes the diacritized text on `sample_output`.
+
+The allowed option are:
+
+- --model-type: ffnn, rnn
+- --model-number:
+  - ffnn: 1, 2, 3
+  - rnn: 1, 2, 3
+- --model-size: small, big
+- --model-average:
+  - rnn: 1, 5, 10, 20
+
+### To Train FFNN Model
+
+Before training any FFNN model you need to prepare the dataset using `prepare_feed_forward_data.py` script. After that to train any FFNN model you can use the `model.ipynb` notebooks exist under `models/ffnn_models/*/`
+
+### To Train RNN Model
+
+There is no need to prepare any data to train RNN models, to train any RNN model you can use the `model.ipynb` notebooks exist under `models/rnn_models/*/`
+
+Note that the RNN models use `CuDNNLSTM` layers which should run on GPU, to train the models or predict output from them using CPU only you can use regular `LSTM` layers. Moreover, all RNN models checkpoints exist under `models/rnn_models/*/` are use `CuDNNLSTM` layers, so the checkpoints should be loaded on GPU, but under `model/rnn_models/*/lstm/` there are the same checkpoints with same weights and structures but with regular `LSTM` layers used instead of `CuDNNLSTM` layers.
 
 #### Note: All codes in this repository tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)
 
