@@ -6,7 +6,7 @@ This repository contains the models, dataset, helpers, and systems comparison fo
 
 ## Files
 
-- predict.py - General script can be used to predict any model output:
+- predict.py - General script can be used to predict any model output exist in this repository
 - sample-input - Sample input file
 
 ### [dataset](/dataset)
