@@ -1,12 +1,12 @@
 # shakkelha
 
-This repository contains the models, dataset, helpers, and systems comparison for our paper on Arabic Text Diacritization:
+This repository contains the models, dataset, helpers, and systems' comparison for our paper on Arabic Text Diacritization:
 
 "Neural Arabic Text Diacritization: Outperforming State of the Art Using FFNN and RNN", Ali Fadel, Ibraheem Tuffaha, Mahmoud Al-Ayyoub and Bara' Al-Jawarneh, [ACL 2019](http://www.acl2019.org).
 
 ## Files
 
-- predict.py - General script can be used to predict any model output exist in this repository
+- predict.py - General script that can be used to predict using any model existing in this repository
 - sample-input - Sample input file
 
 ### [dataset](/dataset)
@@ -15,26 +15,28 @@ This repository contains the models, dataset, helpers, and systems comparison fo
 
 ### [comparisons](/comparisons)
 
-- abandah - Contains the generated dataset, system output and DER/WER statistics used to compair our system with [Abandah et al., 2015](https://link.springer.com/article/10.1007/s10032-015-0242-2)
-- belinkov - Contains the generated dataset, system output and DER/WER statistics used to compair our system with [Belinkov et al., 2015](https://www.aclweb.org/anthology/D15-1274)
-- shakkala - Contains the generated dataset, system output and DER/WER statistics used to compair our system with [Barqawi et al., 2017](https://github.com/Barqawiz/Shakkala)
+- abandah - [Abandah et al., 2015](https://link.springer.com/article/10.1007/s10032-015-0242-2)
+- belinkov - [Belinkov et al., 2015](https://www.aclweb.org/anthology/D15-1274)
+- shakkala - [Barqawi et al., 2017](https://github.com/Barqawiz/Shakkala)
+
+These folders each contain the generated dataset, system output and DER/WER statistics used to compair our system with each of the three systems.
 
 ### [helpers](/helpers)
 
 - constants
-  - ARABIC_LETTERS_LIST.pickle - Contains list of Arbaic letters
-  - DIACRITICS_LIST.pickle - Contains list of all diacritics
-  - FFNN_CLASSES_MAPPING.pickle - Contains a dictionary maps the class to its unique integer (FFNN)
-  - FFNN_REV_CLASSES_MAPPING.pickle - Contains a dictionary maps the integer to its unique class (FFNN)
-  - FFNN_SMALL_CHARACTERS_MAPPING.pickle - Contains a dictionary maps the character to its unique integer (Without using the extra training dataset for FFNN)
-  - RNN_CLASSES_MAPPING.pickle - Contains a dictionary maps the class to its unique integer (RNN)
-  - RNN_REV_CLASSES_MAPPING.pickle - Contains a dictionary maps the integer to its unique class (RNN)
-  - RNN_SMALL_CHARACTERS_MAPPING.pickle - Contains a dictionary maps the character to its unique integer (Without using using the extra training dataset for RNN)
-  - RNN_BIG_CHARACTERS_MAPPING.pickle - Contains a dictionary maps the character to its unique integer (Using using the extra training dataset for RNN)
-- avg_checkpoints.py - Creates averaged models using the last epochs checkpoints from the training phase
-- build_confusion_matrix.py - Builts and plots confusion matrix using the gold and predicted diacritization
+  - ARABIC_LETTERS_LIST.pickle - Contains a list of Arabic letters
+  - DIACRITICS_LIST.pickle - Contains a list of all diacritics
+  - FFNN_CLASSES_MAPPING.pickle - Contains a dictionary, mapping each class to its unique integer (FFNN)
+  - FFNN_REV_CLASSES_MAPPING.pickle - Contains a dictionary, mapping each integer to its unique class (FFNN)
+  - FFNN_SMALL_CHARACTERS_MAPPING.pickle - Contains a dictionary, mapping each character to its unique integer (Without using the extra training dataset for FFNN)
+  - RNN_CLASSES_MAPPING.pickle - Contains a dictionary, mapping each class to its unique integer (RNN)
+  - RNN_REV_CLASSES_MAPPING.pickle - Contains a dictionary, mapping each integer to its unique class (RNN)
+  - RNN_SMALL_CHARACTERS_MAPPING.pickle - Contains a dictionary, mapping each character to its unique integer (Without using using the extra training dataset for RNN)
+  - RNN_BIG_CHARACTERS_MAPPING.pickle - Contains a dictionary, mapping each character to its unique integer (Using using the extra training dataset for RNN)
+- avg_checkpoints.py - Creates weights averaged models using the last epochs checkpoints from the training phase
+- build_confusion_matrix.py - Builds and plots confusion matrix using the gold data and the predicted output
 - build_der_figure.py - Restores and plots the diacritic error rate progress while training for each model from keras training log files
-- plot_character_embeddings.py - Plots embeddings extracted from any epoch checkpoint using t-SNE
+- plot_character_embeddings.py - Plots embeddings extracted from any epoch checkpoint using t-SNE technique
 - count_error_frequency.py - Counts the frequency of errors in each diacritized word
 - prepare_feed_forward_data.py - Prepares FFNN models data
 - restore_model_accuracy_and_loss.py - Restores and plots the accuracy and loss values for FFNN models from keras training log files
@@ -78,13 +80,13 @@ The allowed option are:
 
 ### To Train FFNN Model
 
-Before training any FFNN model you need to prepare the dataset using `prepare_feed_forward_data.py` script. After that to train any FFNN model you can use the `model.ipynb` notebooks exist under `models/ffnn_models/*/`
+Before training any FFNN model you need to prepare the dataset using `prepare_feed_forward_data.py` script. After that to train any FFNN model you can use the `model.ipynb` notebooks that exists under `models/ffnn_models/*/`
 
 ### To Train RNN Model
 
-There is no need to prepare any data to train RNN models, to train any RNN model you can use the `model.ipynb` notebooks exist under `models/rnn_models/*/`
+There is no need to prepare any data to train RNN models, to train any RNN model you can use the `model.ipynb` notebooks that exists under `models/rnn_models/*/`
 
-Note that the RNN models use `CuDNNLSTM` layers which should run on GPU, to train the models or predict output from them using CPU only you can use regular `LSTM` layers. Moreover, all RNN models checkpoints exist under `models/rnn_models/*/` are use `CuDNNLSTM` layers, so the checkpoints should be loaded on GPU, but under `model/rnn_models/*/lstm/` there are the same checkpoints with same weights and structures but with regular `LSTM` layers used instead of `CuDNNLSTM` layers.
+Note that the RNN models use `CuDNNLSTM` layers which should run on GPU, to train the models or predict output from them using CPU only you can use regular `LSTM` layers. Moreover, all RNN models checkpoints exist under `models/rnn_models/*/*/` use `CuDNNLSTM` layers, so the checkpoints should be loaded on GPU, but under `model/rnn_models/*/*/lstm/` you can find the same checkpoints with same weights and structure but with regular `LSTM` layers used instead of `CuDNNLSTM` layers.
 
 #### Note: All codes in this repository tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)
 
