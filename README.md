@@ -53,7 +53,7 @@ This repository contains the models, dataset, helpers, and systems comparison fo
   
 ## Usage
 
-### To Predict
+### Predict
 
 To predict the diacritized text using any model provided in this repository the script `predict.py` can be used, example:
 ```bash
