@@ -57,7 +57,12 @@ This repository contains the models, dataset, helpers, and systems comparison fo
 
 To predict the diacritized text using any model provided in this repository the script `predict.py` can be used, example:
 ```bash
-python predict.py --input-file-path sample_input --model-type rnn --model-number 3 --model-size small --model-average 20 --output-file-path sample_output
+python predict.py --input-file-path sample_input \
+                  --model-type rnn \
+                  --model-number 3 \
+                  --model-size small \
+                  --model-average 20 \
+                  --output-file-path sample_output
 ```
 The previous line will diacritize the text inside `sample_input` file using the `rnn` model that have number `3` trained on the `small` dataset (without extra training dataset) after averaging the last `20` epochs and writes the diacritized text on `sample_output`.
 
