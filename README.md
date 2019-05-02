@@ -97,6 +97,156 @@ Note that the RNN models use `CuDNNLSTM` layers which should run on GPU, to trai
   Basic RNN model structure
 </p>
 
+## Results
+
+All results reported below are on [(Fadel et al., 2019)](https://www.researchgate.net/publication/332785775_Arabic_Text_Diacritization_Using_Deep_Neural_Networks) test set (best results shown in bold).
+
+### FFNN Results
+
+There are three feed-forward neural network models, the following table show the results of each of them:
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">DER/WER</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+    </tr>
+    <tr>
+      <th colspan="2">Including no diacritic</th>
+      <th colspan="2">Excluding no diacritic</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td align="center">Basic Model</td>
+      <td align="center">9.33%/25.93%</td>
+      <td align="center">6.58%/13.89%</td>
+      <td align="center">10.85%/25.39%</td>
+      <td align="center">7.51%/13.53%</td>
+    </tr>
+    <tr>
+      <td align="center">100-Hot Model</td>
+      <td align="center">6.57%/20.21%</td>
+      <td align="center">4.83%/11.14%</td>
+      <td align="center">7.75%/19.83%</td>
+      <td align="center">5.62%/10.93%</td>
+    </tr>
+    <tr>
+      <td align="center">Embeddings Model</td>
+      <td align="center"><b>5.52%/17.12%</b></td>
+      <td align="center"><b>4.06%/9.38%</b></td>
+      <td align="center"><b>6.44%/16.63%</b></td>
+      <td align="center"><b>4.67%/9.10%</b></td>
+    </tr>
+  </tbody>
+</table>
+<p align="center">
+  DER/WER statistics for FFNN models
+</p>
+
+### RNN Results
+
+There are three recurrent neural network models, each of them was trained twice with and without the extra training dataset. The following tables show the results of each of them:
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">DER/WER</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+    </tr>
+    <tr>
+      <th colspan="2">Including no diacritic</th>
+      <th colspan="2">Excluding no diacritic</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td align="center">Basic Model</td>
+      <td align="center">2.68%/7.91%</td>
+      <td align="center">2.19%/4.79%</td>
+      <td align="center">3.09%/7.61%</td>
+      <td align="center">2.51%/4.66%</td>
+    </tr>
+    <tr>
+      <td align="center">CRF Model</td>
+      <td align="center">2.67%/7.73%</td>
+      <td align="center">2.19%/4.69%</td>
+      <td align="center">3.08%/7.46%</td>
+      <td align="center">2.52%/4.60%</td>
+    </tr>
+    <tr>
+      <td align="center">Normalized Model</td>
+      <td align="center"><b>2.60%/7.69%</b></td>
+      <td align="center"><b>2.11%/4.57%</b></td>
+      <td align="center"><b>3.00%/7.39%</b></td>
+      <td align="center"><b>2.42%/4.44%</b></td>
+    </tr>
+  </tbody>
+</table>
+<p align="center">
+  DER/WER statistics for RNN models <b>without</b> training on extra training dataset
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">DER/WER</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+      <th>With case ending</th>
+      <th>Without case ending</th>
+    </tr>
+    <tr>
+      <th colspan="2">Including no diacritic</th>
+      <th colspan="2">Excluding no diacritic</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td align="center">Basic Model</td>
+      <td align="center">1.72%/5.16%</td>
+      <td align="center">1.37%/2.98%</td>
+      <td align="center">1.99%/4.96%</td>
+      <td align="center">1.59%/2.92%</td>
+    </tr>
+    <tr>
+      <td align="center">CRF Model</td>
+      <td align="center">1.84%/5.42%</td>
+      <td align="center">1.47%/3.17%</td>
+      <td align="center">2.13%/5.22%</td>
+      <td align="center">1.69%/3.09%</td>
+    </tr>
+    <tr>
+      <td align="center">Normalized Model</td>
+      <td align="center"><b>1.69%/5.09%</b></td>
+      <td align="center"><b>1.34%/2.91%</b></td>
+      <td align="center"><b>1.95%/4.89%</b></td>
+      <td align="center"><b>1.54%/2.83%</b></td>
+    </tr>
+  </tbody>
+</table>
+<p align="center">
+  DER/WER statistics for RNN models <b>with</b> training on extra training dataset
+</p>
+
+The following figure shows the validation DER of each model while training reported every 5 epochs.
+
+<p align="center">
+  <img src="models/rnn_models/der_while_training.png">
+</p>
+<p align="center">
+  RNN models validation DER while training
+</p>
+
 ## Contributors
 1. [Ali Hamdi Ali Fadel](https://github.com/AliOsm).<br/>
 2. [Ibraheem Tuffaha](https://github.com/IbraheemTuffaha).<br/>
