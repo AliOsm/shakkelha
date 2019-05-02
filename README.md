@@ -78,11 +78,11 @@ The allowed option are:
 - --model-average:
   - rnn: 1, 5, 10, 20
 
-### To Train FFNN Model
+### Train FFNN Model
 
 Before training any FFNN model you need to prepare the dataset using `prepare_feed_forward_data.py` script. After that to train any FFNN model you can use the `model.ipynb` notebooks that exists under `models/ffnn_models/*/`
 
-### To Train RNN Model
+### Train RNN Model
 
 There is no need to prepare any data to train RNN models, to train any RNN model you can use the `model.ipynb` notebooks that exists under `models/rnn_models/*/`
 
