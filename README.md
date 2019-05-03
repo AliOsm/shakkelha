@@ -1,4 +1,4 @@
-# shakkelha
+# Shakkelha
 
 This repository contains the models, dataset, helpers, and systems' comparison for our paper on Arabic Text Diacritization:
 
