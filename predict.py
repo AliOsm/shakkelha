@@ -140,7 +140,7 @@ if __name__ == '__main__':
   if args.model_type == 'ffnn':
     args.model_size = 'small'
 
-  # shut up tensorflow ans keras
+  # shut up tensorflow and keras
   environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
   tf.logging.set_verbosity(tf.logging.ERROR)
 
