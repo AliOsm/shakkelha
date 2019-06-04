@@ -109,8 +109,8 @@ if __name__ =='__main__':
   with open(CONSTANTS_PATH + '/ARABIC_LETTERS_LIST.pickle', 'rb') as file:
     ARABIC_LETTERS_LIST = pkl.load(file)
 
-  with open(CONSTANTS_PATH + '/CLASSES_LIST.pickle', 'rb') as file:
-    CLASSES_LIST = pkl.load(file)
+  with open(CONSTANTS_PATH + '/FFNN_CLASSES_MAPPING.pickle', 'rb') as file:
+    CLASSES_LIST = list(pkl.load(file))
 
   with open(args.original_file_path, 'r') as file:
     original_content = file.readlines()
