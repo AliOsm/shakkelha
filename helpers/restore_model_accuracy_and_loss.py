@@ -17,24 +17,32 @@ def restore_model_accuracy_and_loss(file_path):
     val_loss.append(float(target[13]))
     val_acc.append(float(target[16]))
 
-  plt.figure(num=None, figsize=(16, 6), dpi=100, facecolor='w', edgecolor='k')
+  fig = plt.figure(num=None, figsize=(8, 10), dpi=100, facecolor='w', edgecolor='k')
 
-  plt.subplot(1, 2, 1)
-  plt.plot(acc, 'r--')
-  plt.plot(val_acc, 'b-')
-  plt.title('Model Accuracy')
-  plt.ylabel('Accuracy')
-  plt.xlabel('Epoch')
-  plt.legend(['Training', 'Validation'], loc='best')
+  ax = fig.add_subplot(2, 1, 1)
+  ax.plot(acc, 'r--')
+  ax.plot(val_acc, 'b-')
+  ax.set_ylabel('Accuracy', fontsize=20)
+  ax.set_xlabel('Epoch', fontsize=20)
+  for tick in ax.xaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
+  for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
+  ax.legend(['Training', 'Validation'], loc='best', fontsize=16)
 
-  plt.subplot(1, 2, 2)
-  plt.plot(loss, 'r--')
-  plt.plot(val_loss, 'b-')
-  plt.title('Model Loss')
-  plt.ylabel('Loss')
-  plt.xlabel('Epoch')
-  plt.legend(['Training', 'Validation'], loc='best')
+  ax = fig.add_subplot(2, 1, 2)
+  ax.plot(loss, 'r--')
+  ax.plot(val_loss, 'b-')
+  ax.set_ylabel('Loss', fontsize=20)
+  ax.set_xlabel('Epoch', fontsize=20)
+  for tick in ax.xaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
+  for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
+  ax.legend(['Training', 'Validation'], loc='best', fontsize=16)
 
+  plt.tight_layout()
+  
   plt.show()
 
 if __name__ == '__main__':
