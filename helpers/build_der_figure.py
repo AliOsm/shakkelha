@@ -15,7 +15,7 @@ if __name__ == '__main__':
   
   colors = ['r', 'b', 'k']
 
-  plt.figure(num=None, figsize=(16, 6), dpi=100, facecolor='w', edgecolor='k')
+  fig, ax = plt.subplots(num=None, figsize=(10, 5), dpi=100, facecolor='w', edgecolor='k')
 
   for color, folder in zip(colors, folders):
     print(folder)
@@ -39,16 +39,27 @@ if __name__ == '__main__':
     plt.plot([i for i in range(5, 51, 5)], small_der, '%s%s--' % (color, 's'))
     plt.plot([i for i in range(5, 51, 5)], big_der, '%s%s-' % (color, 'o'))
 
-  plt.title('DER while Training')
-  plt.ylabel('DER')
-  plt.xlabel('Epoch')
-  plt.xticks([i for i in range(5, 51, 5)])
+  plt.ylabel('DER', fontsize=20)
+  plt.xlabel('Epoch', fontsize=20)
+
+  plt.xticks([i for i in range(5, 51, 5)], fontsize=16)
+
+  for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
 
   handles = list()
   for color, folder in zip(colors, folders):
-    handles.append(Line2D([0], [0], color=color, lw=4, label=folder.split(sep)[-1].split('_')[1].title() + ' Model'))
+    model_name = folder.split(sep)[-1].split('_')[1].title()
+    if model_name == 'Crf':
+      model_name = model_name.upper()
+    if model_name == 'Normalized':
+      model_name = 'BNG'
+    handles.append(Line2D([0], [0], color=color, lw=4, label=model_name + ' Model'))
   handles.append(Line2D([0], [0], marker='s', label='w/o extra train'))
   handles.append(Line2D([0], [0], marker='o', label='w/ extra train'))
 
-  plt.legend(handles=handles, loc='best')
+  plt.legend(handles=handles, loc='best', fontsize=20)
+
+  plt.tight_layout()
+
   plt.show()
