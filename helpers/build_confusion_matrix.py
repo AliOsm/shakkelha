@@ -44,18 +44,7 @@ def get_diacritics_classes(line, arabic_letters, diacritic_classes):
 
 def plot_confusion_matrix(y_true, y_pred, subplot,
                           normalize=False,
-                          title=None,
                           cmap=plt.cm.Blues):
-  """
-  This function prints and plots the confusion matrix.
-  Normalization can be applied by setting `normalize=True`.
-  """
-  if not title:
-      if normalize:
-          title = 'Normalized confusion matrix'
-      else:
-          title = 'Confusion matrix, without normalization'
-
   # Only use the labels that appear in the data
   classes = unique_labels(y_true, y_pred)
   new_classes = list()
@@ -67,27 +56,29 @@ def plot_confusion_matrix(y_true, y_pred, subplot,
   cm = confusion_matrix(y_true, y_pred, labels=classes)
   if normalize:
       cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-      print("Normalized confusion matrix")
+      print('Normalized confusion matrix')
   else:
       print('Confusion matrix, without normalization')
 
-  print(cm)
-
-  ax = plt.subplot(1, 2, subplot)
+  fig, ax = plt.subplots()
   im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
   ax.figure.colorbar(im, ax=ax)
   # We want to show all ticks...
   ax.set(xticks=np.arange(cm.shape[1]),
          yticks=np.arange(cm.shape[0]),
          # ... and label them with the respective list entries
-         xticklabels=classes, yticklabels=classes,
-         title=title,
-         ylabel='True label',
-         xlabel='Predicted label')
+         xticklabels=classes, yticklabels=classes)
+  ax.set_xlabel('Predicted label', fontsize=20)
+  ax.set_ylabel('True label', fontsize=20)
 
   # Rotate the tick labels and set their alignment.
-  plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-           rotation_mode="anchor")
+  plt.setp(ax.get_xticklabels(), rotation=45, ha='right',
+           rotation_mode='anchor')
+
+  for tick in ax.xaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
+  for tick in ax.yaxis.get_major_ticks():
+    tick.label.set_fontsize(16)
 
   # Loop over data dimensions and create text annotations.
   fmt = '.2f' if normalize else 'd'
@@ -95,8 +86,12 @@ def plot_confusion_matrix(y_true, y_pred, subplot,
   for i in range(cm.shape[0]):
       for j in range(cm.shape[1]):
           ax.text(j, i, format(cm[i, j], fmt),
-                  ha="center", va="center",
-                  color="white" if cm[i, j] > thresh else "black")
+                  ha='center', va='center', fontsize=14,
+                  color='white' if cm[i, j] > thresh else 'black')
+
+  plt.tight_layout()
+  plt.show()
+
   return ax
 
 if __name__ =='__main__':
@@ -130,7 +125,5 @@ if __name__ =='__main__':
     small_target_classes.extend(get_diacritics_classes(small_target_line, ARABIC_LETTERS_LIST, CLASSES_LIST))
     big_target_classes.extend(get_diacritics_classes(big_target_line, ARABIC_LETTERS_LIST, CLASSES_LIST))
 
-  plot_confusion_matrix(original_classes, small_target_classes, 1, True, 'Recurrent normalized model confusion matrix - without extra train')
-  plot_confusion_matrix(original_classes, big_target_classes, 2, True, 'Recurrent normalized model confusion matrix - with extra train')
-
-  plt.show()
+  plot_confusion_matrix(original_classes, small_target_classes, 1, True)
+  plot_confusion_matrix(original_classes, big_target_classes, 2, True)
