@@ -88,10 +88,8 @@ There is no need to prepare any data to train RNN models, to train any RNN model
 
 Note that the RNN models use `CuDNNLSTM` layers which should run on GPU, to train the models or predict output from them using CPU only you can use regular `LSTM` layers. Moreover, all RNN models checkpoints exist under `models/rnn_models/*/*/` use `CuDNNLSTM` layers, so the checkpoints should be loaded on GPU, but under `model/rnn_models/*/*/lstm/` you can find the same checkpoints with same weights and structure but with regular `LSTM` layers used instead of `CuDNNLSTM` layers.
 
-#### Note: All codes in this repository tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)
-
 <p align="center">
-  <img width="150" src="models/rnn_models/rnn_basic_model_structure.png">
+  <img src="models/rnn_models/rnn_basic_model_structure.png">
 </p>
 <p align="center">
   Basic RNN model structure
@@ -246,6 +244,8 @@ The following figure shows the validation DER of each model while training repor
 <p align="center">
   RNN models validation DER while training
 </p>
+
+#### Note: All codes in this repository tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)
 
 ## Contributors
 1. [Ali Hamdi Ali Fadel](https://github.com/AliOsm).<br/>
