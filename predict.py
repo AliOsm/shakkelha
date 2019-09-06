@@ -100,20 +100,23 @@ def predict_rnn(line, model, ARABIC_LETTERS_LIST, DIACRITICS_LIST, CHARACTERS_MA
   for idx, char in enumerate(line):
     if char in DIACRITICS_LIST:
       continue
-    x.append(CHARACTERS_MAPPING[char])
+    if char not in CHARACTERS_MAPPING:
+      x.append(CHARACTERS_MAPPING['<UNK>'])
+    else:
+      x.append(CHARACTERS_MAPPING[char])
   x.append(CHARACTERS_MAPPING['<EOS>'])
   x = np.array(x).reshape(1, -1)
 
   predictions = model.predict(x).squeeze()
   predictions = predictions[1:]
-  
+
   output = ''
   for char, prediction in zip(remove_diacritics(line, DIACRITICS_LIST), predictions):
     output += char
-    
+
     if char not in ARABIC_LETTERS_LIST:
       continue
-    
+
     prediction = np.argmax(prediction)
 
     if '<' in REV_CLASSES_MAPPING[prediction]:
