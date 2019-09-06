@@ -1,0 +1,3 @@
+keras==2.2.5
+tensorflow-gpu==1.14.0
+git+https://www.github.com/keras-team/keras-contrib.git
