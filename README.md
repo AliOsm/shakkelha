@@ -55,6 +55,11 @@ These folders each contain the generated dataset, system output and DER/WER stat
   
 ## Usage
 
+### Prerequisites
+- Tested with Python 3.6.8
+- Install required packages listed in `requirements.txt` file
+    - `pip install -r requirements.txt`
+
 ### Predict
 
 To predict the diacritized text using any model provided in this repository the script `predict.py` can be used, example:
