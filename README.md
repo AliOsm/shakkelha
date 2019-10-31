@@ -2,7 +2,7 @@
 
 This repository contains the models, dataset, helpers, and systems' comparison for our paper on Arabic Text Diacritization:
 
-"Neural Arabic Text Diacritization: State of the Art Results and a Novel Approach for Machine Translation", Ali Fadel, Ibraheem Tuffaha, Mahmoud Al-Ayyoub and Bara' Al-Jawarneh, [EMNLP-IJCNLP 2019](https://www.emnlp-ijcnlp2019.org).
+"Neural Arabic Text Diacritization: State of the Art Results and a Novel Approach for Machine Translation", Ali Fadel, Ibraheem Tuffaha, Bara' Al-Jawarneh and Mahmoud Al-Ayyoub, [EMNLP-IJCNLP 2019](https://www.emnlp-ijcnlp2019.org).
 
 ## Files
 
@@ -255,8 +255,8 @@ The following figure shows the validation DER of each model while training repor
 ## Contributors
 1. [Ali Hamdi Ali Fadel](https://github.com/AliOsm).<br/>
 2. [Ibraheem Tuffaha](https://github.com/IbraheemTuffaha).<br/>
-3. [Mahmoud Al-Ayyoub](https://github.com/malayyoub).<br/>
-4. [Bara' Al-Jawarneh](https://github.com/baraajaw).<br/>
+3. [Bara' Al-Jawarneh](https://github.com/baraajaw).<br/>
+4. [Mahmoud Al-Ayyoub](https://github.com/malayyoub).<br/>
 
 ## License
 The project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
