@@ -27,10 +27,16 @@ jobs:
         pip install -r requirements.txt
     - name: Run a test to check if code is working
       run: python predict.py --input-file-path sample_input \
-                             --model-type ${{ matrix.model_type }} \
+                             --model-type rnn \
                              --model-number ${{ matrix.model_number }} \
                              --model-size ${{ matrix.model_size }} \
                              --model-average ${{ matrix.model_average }} \
                              --output-file-path sample_output
            test -e sample_output
            rm -f sample_output
+
+           python predict.py --input-file-path sample_input \
+                             --model-type ffnn \
+                             --model-number ${{ matrix.model_number }} \
+                             --output-file-path sample_output
+           test -e sample_output

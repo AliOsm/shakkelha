@@ -1,3 +1,5 @@
+![](https://github.com/IbraheemTuffaha/fuzzy-simplex/workflows/test/badge.svg)
+
 # Shakkelha
 
 This repository contains the models, dataset, helpers, and systems' comparison for our paper on Arabic Text Diacritization:
@@ -52,7 +54,7 @@ These folders each contain the generated dataset, system output and DER/WER stat
   - 1_basic_model - Contains basic RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
   - 2_crf_model - Contains CRF-RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
   - 3_normalized_model - Contains normalized RNN model training code, model weights, averaged models and DER/WER statistics. The model was trained with and without the extra training dataset
-  
+
 ## Usage
 
 ### Prerequisites
@@ -122,7 +124,7 @@ There are three feed-forward neural network models, the following table show the
       <th colspan="2">Excluding no diacritic</th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td align="center">Basic Model</td>
@@ -169,7 +171,7 @@ There are three recurrent neural network models, each of them was trained twice 
       <th colspan="2">Excluding no diacritic</th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td align="center">Basic Model</td>
@@ -212,7 +214,7 @@ There are three recurrent neural network models, each of them was trained twice 
       <th colspan="2">Excluding no diacritic</th>
     </tr>
   </thead>
-  
+
   <tbody>
     <tr>
       <td align="center">Basic Model</td>
