@@ -1,4 +1,4 @@
-![](https://github.com/IbraheemTuffaha/fuzzy-simplex/workflows/test/badge.svg)
+![](https://github.com/AliOsm/shakkelha/workflows/test/badge.svg)
 
 # Shakkelha
 
