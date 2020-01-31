@@ -25,7 +25,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run a test to check if code is working
+    - name: Run a test to check if rnn models are working
       run: python predict.py --input-file-path sample_input \
                              --model-type rnn \
                              --model-number ${{ matrix.model_number }} \
@@ -33,9 +33,9 @@ jobs:
                              --model-average ${{ matrix.model_average }} \
                              --output-file-path sample_output
            test -e sample_output
-           rm -f sample_output
 
-           python predict.py --input-file-path sample_input \
+    - name: Run a test to check if ffnn models are working
+      run: python predict.py --input-file-path sample_input \
                              --model-type ffnn \
                              --model-number ${{ matrix.model_number }} \
                              --output-file-path sample_output
