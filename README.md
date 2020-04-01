@@ -1,4 +1,4 @@
-![](https://github.com/AliOsm/shakkelha/workflows/test/badge.svg)
+![](https://github.com/AliOsm/shakkelha/workflows/test/badge.svg) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neural-arabic-text-diacritization-state-of-1/arabic-text-diacritization-on-tashkeela)](https://paperswithcode.com/sota/arabic-text-diacritization-on-tashkeela?p=neural-arabic-text-diacritization-state-of-1)
 
 # Shakkelha
 
