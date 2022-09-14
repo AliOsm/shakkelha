@@ -21,7 +21,7 @@ This repository contains the models, dataset, helpers, and systems' comparison f
 - belinkov - [Belinkov et al., 2015](https://www.aclweb.org/anthology/D15-1274)
 - shakkala - [Barqawi et al., 2017](https://github.com/Barqawiz/Shakkala)
 
-These folders each contain the generated dataset, system output and DER/WER statistics used to compair our system with each of the three systems.
+These folders each contain the generated dataset, system output and DER/WER statistics used to compare our system with each of the three systems.
 
 ### [helpers](/helpers)
 
